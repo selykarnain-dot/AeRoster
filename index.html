@@ -133,42 +133,53 @@
             margin-top: 1px;
         }
 
-        /* Mobile Layout */
+        /* Mobile Layout Redesigned for Calendar Grid Matrix */
         @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
+            body {
+                padding: 10px;
             }
-            .day-name {
-                display: none;
+
+            .calendar-header {
+                padding: 15px;
             }
-            .calendar-day {
-                min-height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                padding: 12px;
-            }
-            .empty-day {
-                display: none;
-            }
-            .day-number {
-                margin-bottom: 0;
+
+            .calendar-header h1 {
                 font-size: 1.2rem;
             }
-            .day-number::before {
-                content: "Hari ";
+
+            .calendar-header h2 {
+                font-size: 1rem;
             }
+
+            .day-name {
+                padding: 6px 0;
+                font-size: 0.65rem; /* Shorter names show clean */
+            }
+
+            .calendar-day {
+                min-height: 75px; /* Scaled down for mobile viewport height */
+                padding: 4px;
+            }
+
+            .day-number {
+                font-size: 0.85rem;
+                margin-bottom: 4px;
+            }
+
             .shift-container {
-                align-items: flex-end;
-                flex-grow: 0;
-                width: 70%;
+                gap: 2px;
             }
+
             .shift {
-                width: 100%;
-                text-align: right;
-                box-sizing: border-box;
+                font-size: 0.55rem; /* Smaller typography to prevent wrap breaking */
+                padding: 2px 3px;
+                border-left-width: 2px;
+            }
+
+            .staff-name {
+                font-size: 0.55rem;
+                display: inline; /* Kept inline to optimize vertical space constraints */
+                margin-left: 1px;
             }
         }
     </style>
@@ -204,7 +215,7 @@
         <div class="calendar-day">
             <div class="day-number">2</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI FARMASI</span></div>
+                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
                 <div class="shift shift-12am">12AM: <span class="staff-name">AINUN</span></div>
             </div>
         </div>
@@ -259,7 +270,7 @@
         <div class="calendar-day">
             <div class="day-number">9</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI FARMASI</span></div>
+                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
                 <div class="shift shift-12am">12AM: <span class="staff-name">USILI</span></div>
             </div>
         </div>
@@ -268,7 +279,7 @@
             <div class="day-number">10</div>
             <div class="shift-container">
                 <div class="shift shift-10pm">10PM: <span class="staff-name">QURRATU</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">PEGAWAI FARMASI</span></div>
+                <div class="shift shift-12am">12AM: <span class="staff-name">PEGAWAI</span></div>
             </div>
         </div>
 
@@ -315,7 +326,7 @@
         <div class="calendar-day">
             <div class="day-number">16</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI FARMASI</span></div>
+                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
                 <div class="shift shift-12am">12AM: <span class="staff-name">HERMAN</span></div>
             </div>
         </div>
@@ -370,7 +381,7 @@
         <div class="calendar-day">
             <div class="day-number">23</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI FARMASI</span></div>
+                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
                 <div class="shift shift-12am">12AM: <span class="staff-name">CECELIA</span></div>
             </div>
         </div>
@@ -417,7 +428,7 @@
         <div class="calendar-day">
             <div class="day-number">29</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">AUDERY</span></div>
+                <div class="shift shift-10pm">10PM: <span class="shift-name">AUDERY</span></div>
                 <div class="shift shift-12am">12AM: <span class="staff-name">BELTON</span></div>
             </div>
         </div>
