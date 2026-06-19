@@ -107,6 +107,9 @@
         }
 
         .shift {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             font-size: 0.75rem;
             padding: 4px 6px;
             border-radius: 4px;
@@ -131,55 +134,66 @@
             font-weight: bold;
             font-size: 0.8rem;
             margin-top: 1px;
+            margin-left: 3px;
         }
 
-        /* Mobile Layout Redesigned for Calendar Grid Matrix */
+        /* Mobile Layout Fixed Grid View */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 8px;
             }
 
             .calendar-header {
-                padding: 15px;
+                padding: 12px;
             }
 
             .calendar-header h1 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .calendar-header h2 {
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .grid-container {
+                /* minmax(0, 1fr) stops content from widening the columns */
+                grid-template-columns: repeat(7, minmax(0, 1fr));
             }
 
             .day-name {
                 padding: 6px 0;
-                font-size: 0.65rem; /* Shorter names show clean */
+                font-size: 0.6rem;
+                letter-spacing: -0.5px;
             }
 
             .calendar-day {
-                min-height: 75px; /* Scaled down for mobile viewport height */
-                padding: 4px;
+                min-height: 85px;
+                padding: 3px;
             }
 
             .day-number {
-                font-size: 0.85rem;
-                margin-bottom: 4px;
+                font-size: 0.8rem;
+                margin-bottom: 3px;
             }
 
             .shift-container {
-                gap: 2px;
+                gap: 3px;
             }
 
             .shift {
-                font-size: 0.55rem; /* Smaller typography to prevent wrap breaking */
-                padding: 2px 3px;
+                font-size: 0.55rem;
+                padding: 2px;
                 border-left-width: 2px;
+                flex-direction: column; /* Stacks time and name vertically on mobile */
+                align-items: flex-start;
+                word-break: break-word; /* Prevents overflow of names */
             }
 
             .staff-name {
                 font-size: 0.55rem;
-                display: inline; /* Kept inline to optimize vertical space constraints */
-                margin-left: 1px;
+                margin-top: 0px;
+                margin-left: 0px;
+                white-space: normal;
             }
         }
     </style>
@@ -208,244 +222,244 @@
         <div class="calendar-day">
             <div class="day-number">1</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">AINUN</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">AINUN</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">2</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">AINUN</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">PEGAWAI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">AINUN</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">3</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">FETRE</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">FETRE</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">4</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">ANIEDA</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">FETRE</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">ANIEDA</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">FETRE</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">5</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">JOSIE</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">ANIEDA</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">JOSIE</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">ANIEDA</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">6</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">NGACHIRAN</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">JOSIE</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">NGACHIRAN</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">JOSIE</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">7</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">DIANA</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">NGACHIRAN</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">DIANA</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">NGACHIRAN</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">8</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">USILI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">DIANA</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">USILI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">DIANA</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">9</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">USILI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">PEGAWAI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">USILI</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">10</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">QURRATU</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">PEGAWAI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">QURRATU</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">PEGAWAI</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">11</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">CECELIA</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">QURRATU</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">CECELIA</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">QURRATU</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">12</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">RAIDAH</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">CECELIA</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">RAIDAH</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">CECELIA</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">13</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">JUBAIDAH</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">RAIDAH</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">JUBAIDAH</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">RAIDAH</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">14</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">SOLEHAH</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">JUBAIDAH</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">SOLEHAH</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">JUBAIDAH</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">15</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">HERMAN</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">SOLEHAH</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">HERMAN</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">SOLEHAH</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">16</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">HERMAN</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">PEGAWAI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">HERMAN</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">17</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">ISAWATI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">ISAWATI</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">18</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">RUSDI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">ISAWATI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">RUSDI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">ISAWATI</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">19</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">JULINAH</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">RUSDI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">JULINAH</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">RUSDI</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">20</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">FETRE</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">JULINAH</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">FETRE</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">JULINAH</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">21</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">HILDA</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">FETRE</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">HILDA</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">FETRE</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">22</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">CECELIA</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">HILDA</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">CECELIA</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">HILDA</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">23</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">PEGAWAI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">CECELIA</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">PEGAWAI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">CECELIA</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">24</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">RIKY</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">RIKY</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">25</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">WEDAYATI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">RIKY</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">WEDAYATI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">RIKY</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">26</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">ANIEDA</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">WEDAYATI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">ANIEDA</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">WEDAYATI</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">27</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="shift-name">QURRATU</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">ANIEDA</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">QURRATU</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">ANIEDA</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">28</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">BELTON</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">QURRATU</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">BELTON</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">QURRATU</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">29</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="shift-name">AUDERY</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">BELTON</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">AUDERY</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">BELTON</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">30</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">ISAWATI</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">AUDERY</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">ISAWATI</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">AUDERY</span></div>
             </div>
         </div>
 
         <div class="calendar-day">
             <div class="day-number">31</div>
             <div class="shift-container">
-                <div class="shift shift-10pm">10PM: <span class="staff-name">JUBAIDAH</span></div>
-                <div class="shift shift-12am">12AM: <span class="staff-name">ISAWATI</span></div>
+                <div class="shift shift-10pm">10PM<span class="staff-name">JUBAIDAH</span></div>
+                <div class="shift shift-12am">12AM<span class="staff-name">ISAWATI</span></div>
             </div>
         </div>
 
